@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="Sample_Silverlight_Application.MainPage"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:LINQ="clr-namespace:System.Xml.Linq;assembly=System.Xml.Linq"          
+    mc:Ignorable="d"
+    d:DesignHeight="560" d:DesignWidth="1024" >
+
+    <Grid Background="Lavender">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid Name="HeaderGrid" Grid.Row="0" ShowGridLines="False" HorizontalAlignment="Stretch" Background="Lavender" DataContext="{Binding ElementName=UserGrid, Path=SelectedItem}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="11" Height="40" Name="exitButton" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top" Click="exitButton_Click" IsEnabled="True" ToolTipService.ToolTip="Exit">
+                <Image Source="Exit.PNG"></Image>
+            </Button>
+        </Grid>
+            <Grid x:Name="LogonPanel" Grid.Row="1" Height="195" Width="400" Visibility="Visible" VerticalAlignment="Stretch" Background="CadetBlue">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0" />
+                    <RowDefinition Height="32"/>
+                    <RowDefinition Height="26"/>
+                    <RowDefinition Height="26"/>
+                    <RowDefinition Height="26"/>
+                    <RowDefinition Height="90"/>
+                    <RowDefinition Height="0"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" ShowGridLines="false" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                </Grid>
+                <Grid Grid.Row="1" ShowGridLines="False" Margin="0,4,0,0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock  VerticalAlignment="Center" HorizontalAlignment="Right"  Padding="10" FontSize="12" FontWeight="Bold" Grid.Column="0" >Login Name:</TextBlock>
+                    <TextBox x:Name="Login_Name" Text="admin" Background="Beige" VerticalAlignment="Center" Margin="2" HorizontalAlignment="Left" Grid.Column="1" Width="200" Height="23"></TextBox>
+                </Grid>
+                <Grid Grid.Row="2" ShowGridLines="false">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Padding="10" FontSize="12" Grid.Column="0" FontWeight="Bold">Password:</TextBlock>
+                    <PasswordBox x:Name="Password" Password="innovator" Background="Beige"  VerticalAlignment="Center" Margin="2" HorizontalAlignment="Left"  Grid.Column="1" Width="200" Height="23" ></PasswordBox>
+                </Grid>
+                <Grid Grid.Row="3" ShowGridLines="false">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Padding="10" FontSize="12" Grid.Column="0" FontWeight="Bold">Server:</TextBlock>
+                    <TextBox x:Name="Server" Text="http://localhost/InnovatorServer" Background="Beige"  VerticalAlignment="Center" Margin="2" HorizontalAlignment="Left"  Grid.Column="1" Width="200" Height="23" IsReadOnly="False" ></TextBox>
+                </Grid>
+                <Grid Grid.Row="4" ShowGridLines="false">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Padding="10" FontSize="12" Grid.Column="0" FontWeight="Bold">Database:</TextBlock>
+                    <TextBox x:Name="Database" Text="InnovatorSolutions" Background="Beige"  VerticalAlignment="Center" Margin="2" HorizontalAlignment="Left"  Grid.Column="1" Width="200" Height="23" IsReadOnly="False" ></TextBox>
+                </Grid>
+                 <Button Grid.Row="5" x:Name="LoginButton" Margin="5,5,5,5"  Height="30" Width="150" Grid.Column="0" Content="Login and Run Query" Click="LoginButton_Click"></Button>
+             </Grid>
+            <Grid Name="bigUserGrid" Grid.Row="2" ShowGridLines="False">
+                <sdk:DataGrid Name="UserGrid" Margin="0,0,5,0" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="true" Width="600" Height="200" RowHeight="20" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" RowDetailsVisibilityMode="Visible">
+                    <sdk:DataGrid.Columns>
+                        <sdk:DataGridTextColumn Header="First Name" Width="100"  Binding="{Binding Path=FirstName}" />
+                        <sdk:DataGridTextColumn Header="Last Name" Width="150"    Binding="{Binding Path=LastName}" />
+                        <sdk:DataGridTextColumn Header="Email" Width="150"    Binding="{Binding Path=Email}" />
+                        <sdk:DataGridTextColumn Header="Phone" Width="100"    Binding="{Binding Path=Phone}" />
+                    </sdk:DataGrid.Columns>
+                </sdk:DataGrid>
+            </Grid>
+
+
+        <Grid Grid.Row="2"   HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Background="Azure"  >
+            <Canvas Name="FEEDBACK" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Background="Azure" Visibility="Collapsed" >
+                <TextBlock Name="FEEDBACKMSG" Canvas.Left="10" Height="28"   HorizontalAlignment="Stretch"  TextAlignment="Left" VerticalAlignment="Bottom"  Text=" " Foreground="Red" FontStyle="Normal" FontWeight="Bold" FontSize="18" />
+            </Canvas>
+        </Grid>
+    </Grid>
+</UserControl>

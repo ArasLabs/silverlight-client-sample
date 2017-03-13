@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Web Developer Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample Silverlight Application", "Sample Silverlight Application\Sample Silverlight Application.csproj", "{655DF79D-56E1-45E6-9923-6C07E1A514B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{655DF79D-56E1-45E6-9923-6C07E1A514B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{655DF79D-56E1-45E6-9923-6C07E1A514B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{655DF79D-56E1-45E6-9923-6C07E1A514B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{655DF79D-56E1-45E6-9923-6C07E1A514B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
